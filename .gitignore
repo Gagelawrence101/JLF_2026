@@ -1,5 +1,7 @@
 # Raw shot data -- lives on the shared drive, not in git.
-SLUG/data/
+# (no trailing slash -- SLUG/data is a symlink locally, not a real dir, and
+# a trailing-slash pattern only matches real directories)
+SLUG/data
 SLUG.tar
 *.h5
 *.wfm
