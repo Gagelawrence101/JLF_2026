@@ -1,0 +1,18 @@
+# Raw shot data -- lives on the shared drive, not in git.
+SLUG/data/
+SLUG.tar
+*.h5
+*.wfm
+shot*.csv
+tek*.csv
+drive-download-*/
+drive-download-*.zip
+
+# Jupyter / Python housekeeping
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+
+# Local machine-specific config
+.claude/
