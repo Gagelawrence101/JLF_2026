@@ -105,12 +105,3 @@ manual correction from what the auto-detector originally said.
   were captured single-channel again for some reason (all early-Al/blocked
   shots; worth asking whoever ran those). Shot 32 (also from that stretch)
   does have Channel 2, so it's specifically 27–30, not the whole run.
-- **Every double-pulse shot is logged good.** All 11 shots in this category
-  are logged good (or good-with-caveat, shot 19's "Slug moved"). That's the
-  cleanest signal in this dataset: a genuine two-feature x-ray+proton shape
-  reliably lines up with the log calling the shot usable.
-- **Saturated (🔴) doesn't always mean logged-bad.** 3 of the 6 saturated
-  shots (3, 7, 10) are logged *good* — the shot log's "saturated" call
-  seems to track severity/whether it wrecks the analysis, not strict
-  presence of any clipping. Worth keeping in mind before assuming "good in
-  the log" means "the waveform is clean."
