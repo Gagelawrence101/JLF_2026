@@ -6,9 +6,6 @@ diagnostics (streak camera, RCF, etc.) get their own folders alongside this
 one, each will carry its own shot_log.py with the same shape -- the `good`
 flag here specifically means "is the SLUG data usable for this shot," not a
 verdict on the shot as a whole.
-
-Source: the group's shot-log spreadsheet (Book 3.pdf). `good` mirrors that
-sheet's own "Good Shot/no saturation" column -- it is not inferred here.
 """
 
 import os
