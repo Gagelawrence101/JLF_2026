@@ -14,16 +14,17 @@ were captured for that shot; `—` means either it's a single-channel h5
 concept at all.
 
 See [README.md](README.md) for what each category/color means, and its
-"Known remaining issue" note on why 8 of these 11 double pulses needed
+"Known remaining issue" note on why most of these 12 double pulses needed
 manual correction from what the auto-detector originally said.
 
 ---
 
-### 🟢 Double pulse (prompt + delayed candidate) (11 shots)
+### 🟢 Double pulse (prompt + delayed candidate) (12 shots)
 
 | Shot | Log | Has ref ch. (Ch2) | Waveform |
 |---|---|---|---|
 | 9 | ✅ | — | [<img src="waveforms/shot_9.png" width="180">](waveforms/shot_9.png) |
+| 11 | ✅ | — | [<img src="waveforms/shot_11.png" width="180">](waveforms/shot_11.png) |
 | 15 | ✅ | — | [<img src="waveforms/shot_15.png" width="180">](waveforms/shot_15.png) |
 | 16 | ✅ | — | [<img src="waveforms/shot_16.png" width="180">](waveforms/shot_16.png) |
 | 18 | ✅ | ✅ | [<img src="waveforms/shot_18.png" width="180">](waveforms/shot_18.png) |
@@ -54,12 +55,6 @@ manual correction from what the auto-detector originally said.
 | 41 | ✅ | ✅ | [<img src="waveforms/shot_41.png" width="180">](waveforms/shot_41.png) |
 | 42 | ✅ | ✅ | [<img src="waveforms/shot_42.png" width="180">](waveforms/shot_42.png) |
 | 43 | ✅ | ✅ | [<img src="waveforms/shot_43.png" width="180">](waveforms/shot_43.png) |
-
-### 🟡 Multi-pulse / complex structure (1 shot)
-
-| Shot | Log | Has ref ch. (Ch2) | Waveform |
-|---|---|---|---|
-| 11 | ✅ | — | [<img src="waveforms/shot_11.png" width="180">](waveforms/shot_11.png) |
 
 ### 🟡 Broad unresolved feature (no distinct sub-peaks) (1 shot)
 
@@ -105,7 +100,7 @@ manual correction from what the auto-detector originally said.
   were captured single-channel again for some reason (all early-Al/blocked
   shots; worth asking whoever ran those). Shot 32 (also from that stretch)
   does have Channel 2, so it's specifically 27–30, not the whole run.
-- **Every double-pulse shot is logged good.** All 11 shots in this category
+- **Every double-pulse shot is logged good.** All 12 shots in this category
   are logged good (or good-with-caveat, shot 19's "Slug moved"). That's the
   cleanest signal in this dataset: a genuine two-feature x-ray+proton shape
   reliably lines up with the log calling the shot usable.

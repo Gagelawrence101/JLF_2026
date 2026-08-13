@@ -22,7 +22,7 @@ VERIFIED_CATEGORY = {
     8:  "No significant pulse (noise-level)",  # auto said multi-pulse; it's ringing, not a real pulse
     9:  "Double pulse (prompt + delayed candidate)",
     10: "Saturated / clipped pulse",
-    11: "Multi-pulse / complex structure",  # "sample rate bad" -- not relabeled
+    11: "Double pulse (prompt + delayed candidate)",  # revisited: two clean, well-separated narrow spikes (~96, ~110ns)
     12: "Single narrow pulse",
     13: "Single narrow pulse",
     15: "Double pulse (prompt + delayed candidate)",  # auto said multi-pulse

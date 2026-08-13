@@ -40,7 +40,7 @@ vice versa; shot 7 is logged good but is clearly saturated by eye, kept as
 | 8 | ✅ | 🔴 No significant pulse (noise-level) | [<img src="waveforms/shot_8.png" width="180">](waveforms/shot_8.png) |
 | 9 | ✅ | 🟢 Double pulse (prompt + delayed candidate) | [<img src="waveforms/shot_9.png" width="180">](waveforms/shot_9.png) |
 | 10 | ✅ | 🔴 Saturated / clipped pulse | [<img src="waveforms/shot_10.png" width="180">](waveforms/shot_10.png) |
-| 11 | ✅ | 🟡 Multi-pulse / complex structure | [<img src="waveforms/shot_11.png" width="180">](waveforms/shot_11.png) |
+| 11 | ✅ | 🟢 Double pulse (prompt + delayed candidate) | [<img src="waveforms/shot_11.png" width="180">](waveforms/shot_11.png) |
 | 12 | ❌ | 🟢 Single narrow pulse | [<img src="waveforms/shot_12.png" width="180">](waveforms/shot_12.png) |
 | 13 | ❌ | 🟢 Single narrow pulse | [<img src="waveforms/shot_13.png" width="180">](waveforms/shot_13.png) |
 | 14 | ❌ | 🔴 NO DATA FILE | — |
@@ -90,3 +90,10 @@ feature). A real fix needs to distinguish "noisy but one broad feature"
 from "two separate features" some other way — e.g. envelope-based merging
 instead of a flat time gap. Until then, `VERIFIED_CATEGORY` is correct;
 `characterize()`'s raw output on these 8 shots is not.
+
+Shot 11 is a separate, different bug: `characterize()` correctly merges its
+two real spikes (~96, ~110ns) into one feature, but then also picks up two
+spurious later features (~380ns, ~460ns) further out in its unusually long,
+low-sample-rate record — landing on "multi-pulse/complex" (n_features=3)
+instead of "double pulse" for the wrong reason. Also corrected in
+`VERIFIED_CATEGORY`.
