@@ -41,10 +41,7 @@ def plot_shot(entries, load_channel_fn, characterize_fn, data_dir, zoom_pad_ns=5
             hi = (pr["peak_time_ns"] if pr else xr["peak_time_ns"]) + zoom_pad_ns
             mask = (t_ns >= lo) & (t_ns <= hi)
             ax_zoom.plot(t_ns[mask], v[mask], lw=0.8)
-            ax_zoom.axvline(xr["peak_time_ns"], color="tab:orange", ls="--", label="x-ray cand.")
-            if pr:
-                ax_zoom.axvline(pr["peak_time_ns"], color="tab:green", ls="--", label="proton cand.")
-            ax_zoom.legend(fontsize=8)
+            # x-ray/proton candidate markers removed for now -- can add back later
             ax_zoom.set_title("zoom around detected feature(s)")
         else:
             if len(t_ns) > MAX_PLOT_POINTS:
