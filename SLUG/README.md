@@ -1,8 +1,7 @@
 # SLUG
 
 Proton time-of-flight diagnostic for the JLF_2026 campaign (Keysight UXR0134A /
-Tektronix MSO4054 oscilloscope traces). One of several diagnostics that will
-eventually sit alongside this folder — the `good` flag in `shot_log.py` means
+Tektronix MSO4054 oscilloscope traces).— the `good` flag in `shot_log.py` means
 "is the SLUG data usable for this shot," not a verdict on the shot overall.
 
 ## Layout
@@ -13,12 +12,8 @@ eventually sit alongside this folder — the `good` flag in `shot_log.py` means
   shot N."
 - **`helpers/`** — generic plumbing: decoding raw h5/csv into calibrated
   `(time, voltage)` arrays (`loaders.py`), plotting (`plotting.py`).
-- **`shot_characterization/`** — the actual pulse-finding logic
-  (`characterize.py`): baseline/noise estimation, x-ray-candidate and
-  proton-candidate detection, category labeling. This is a heuristic, not a
-  substitute for eyeballing the plot.
-- **`analysis/`** — notebooks that import from the three folders above.
-  Start with `shot_review.ipynb`.
+- **`shot_characterization/`** — Organization of shots
+- **`analysis/`** — analysis code here
 
 ## Getting the data
 
