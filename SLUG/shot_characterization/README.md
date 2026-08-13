@@ -77,7 +77,4 @@ vice versa; shot 7 is logged good but is clearly saturated by eye, kept as
 See [BY_CATEGORY.md](BY_CATEGORY.md) for the same shots grouped by category
 instead (and which ones have the reference channel).
 
-feature). A real fix needs to distinguish "noisy but one broad feature"
-from "two separate features" some other way — e.g. envelope-based merging
-instead of a flat time gap. Until then, `VERIFIED_CATEGORY` is correct;
-`characterize()`'s raw output on these 8 shots is not.
+
