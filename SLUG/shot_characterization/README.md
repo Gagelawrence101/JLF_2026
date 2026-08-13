@@ -76,24 +76,3 @@ vice versa; shot 7 is logged good but is clearly saturated by eye, kept as
 
 See [BY_CATEGORY.md](BY_CATEGORY.md) for the same shots grouped by category
 instead (and which ones have the reference channel).
-
-## Known remaining issue
-
-8 shots (15, 16, 18, 19, 20, 21, 22, 27) all share a real double-pulse shape
-— a sharp x-ray spike immediately followed by a broader, noisy proton hump —
-that `characterize()`'s region-merging logic mis-splits into either too many
-features ("multi-pulse/complex") or drops the hump entirely ("single"
-pulse, spike only). Widening `merge_gap_ns` was tried and rejected: it fixes
-some of these but breaks shots that were already correctly detected as
-double pulses at the default value (9, 25, 26 collapse into a single merged
-feature). A real fix needs to distinguish "noisy but one broad feature"
-from "two separate features" some other way — e.g. envelope-based merging
-instead of a flat time gap. Until then, `VERIFIED_CATEGORY` is correct;
-`characterize()`'s raw output on these 8 shots is not.
-
-Shot 11 is a separate, different bug: `characterize()` correctly merges its
-two real spikes (~96, ~110ns) into one feature, but then also picks up two
-spurious later features (~380ns, ~460ns) further out in its unusually long,
-low-sample-rate record — landing on "multi-pulse/complex" (n_features=3)
-instead of "double pulse" for the wrong reason. Also corrected in
-`VERIFIED_CATEGORY`.
