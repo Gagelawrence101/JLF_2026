@@ -6,6 +6,10 @@ candidates if any are found. This is a heuristic (envelope-smooth, threshold,
 merge nearby excursions into "features"), not a substitute for eyeballing
 the plot — click a waveform below before trusting anything in 🟡 or 🔴.
 
+Shots listed here in numeric order; see [BY_CATEGORY.md](BY_CATEGORY.md) for
+the same shots grouped by category instead (and which ones have the
+reference channel).
+
 ## Categories
 
 | | Category | Meaning |
