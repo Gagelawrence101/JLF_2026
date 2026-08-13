@@ -86,8 +86,8 @@ FILE_MAP = {
     12: [("h5", "Shot 12_ 07132026/shot12.h5", "Channel 4")],
     13: [("h5", "Shot 13_ 07132026/shot13.h5", "Channel 4")],
     14: [],  # missed target
-    15: [],  # marked good in log, but no file in archive
-    16: [],  # marked good in log, but no file in archive
+    15: [("h5", "shot15.h5", "Channel 4")],  # NOT in SLUG.tar -- found loose in the parent dir, copied in
+    16: [("h5", "shot16.h5", "Channel 4")],  # NOT in SLUG.tar -- found loose in the parent dir, copied in
     17: [("h5", "shot17.h5", "Channel 2"), ("h5", "shot17.h5", "Channel 4")],
     18: [("h5", "shot18.h5", "Channel 2"), ("h5", "shot18.h5", "Channel 4")],
     19: [("h5", "shot19.h5", "Channel 2"), ("h5", "shot19.h5", "Channel 4")],

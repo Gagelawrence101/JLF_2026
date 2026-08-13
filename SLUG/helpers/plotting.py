@@ -7,11 +7,22 @@ import matplotlib.pyplot as plt
 MAX_PLOT_POINTS = 200_000
 
 
-def plot_shot(entries, load_channel_fn, characterize_fn, data_dir, zoom_pad_ns=50):
+def plot_shot(entries, load_channel_fn, characterize_fn, data_dir, zoom_pad_ns=50,
+              zoom_pad_ns_forward=250):
     """entries: list of (kind, path, channel_label) for one shot, as in FILE_MAP.
     load_channel_fn(data_dir, kind, path, ch) -> (t, v, clipped, ydisp)
     characterize_fn(t, v, clipped) -> result dict with xray_candidate/proton_candidate
     Returns the list of per-channel characterize() results, in entry order.
+
+    zoom_pad_ns_forward always pads well past the latest detected feature
+    (x-ray or proton, whichever is later), not just when no proton was
+    found. A tight window keyed only on the reported proton time isn't
+    trustworthy on its own -- the proton-candidate assignment itself can be
+    wrong (seen on shot 19: it locked onto the x-ray spike itself instead of
+    the real hump ~30-65ns later), so relying on it alone to size the view
+    would silently hide the same kind of real structure this was meant to
+    stop cutting off. That underlying assignment bug is tracked separately;
+    this is just making the *view* robust to it in the meantime.
     """
     n = len(entries)
     fig, axes = plt.subplots(n, 2, figsize=(12, 3.2 * n), squeeze=False)
@@ -37,8 +48,9 @@ def plot_shot(entries, load_channel_fn, characterize_fn, data_dir, zoom_pad_ns=5
 
         xr, pr = res["xray_candidate"], res["proton_candidate"]
         if xr:
+            latest = max(xr["peak_time_ns"], pr["peak_time_ns"] if pr else xr["peak_time_ns"])
             lo = xr["peak_time_ns"] - zoom_pad_ns
-            hi = (pr["peak_time_ns"] if pr else xr["peak_time_ns"]) + zoom_pad_ns
+            hi = latest + zoom_pad_ns_forward
             mask = (t_ns >= lo) & (t_ns <= hi)
             ax_zoom.plot(t_ns[mask], v[mask], lw=0.8)
             # x-ray/proton candidate markers removed for now -- can add back later
