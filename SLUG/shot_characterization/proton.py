@@ -57,9 +57,21 @@ def find_proton_onset(t, v, baseline, xray_peak_i, envelope_smooth_ns=3.0,
         k -= 1
     onset_i = k
 
+    # end: mirror of onset, walking forward from the peak instead of
+    # backward, at the same shape-adaptive threshold -- for reading the
+    # whole pulse (onset to end) as a per-sample energy spectrum, not just
+    # a single onset-to-onset TOF number
+    search_samp = max(1, int(round(search_window_ns / dt_ns)))
+    end_bound = min(len(v) - 1, peak_i + search_samp)
+    m = peak_i
+    while m < end_bound and envelope[m] > level:
+        m += 1
+    end_i = m
+
     return dict(
-        peak_i=int(peak_i), onset_i=int(onset_i),
+        peak_i=int(peak_i), onset_i=int(onset_i), end_i=int(end_i),
         peak_time_ns=float(t_ns[peak_i]), peak_val_V=float(v[peak_i]),
         onset_time_ns=float(t_ns[onset_i]), onset_val_V=float(v[onset_i]),
+        end_time_ns=float(t_ns[end_i]), end_val_V=float(v[end_i]),
         width50_ns=float(width50_ns), onset_frac_used=onset_frac,
     )
