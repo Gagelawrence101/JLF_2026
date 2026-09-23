@@ -12,8 +12,14 @@ Tektronix MSO4054 oscilloscope traces).— the `good` flag in `shot_log.py` mean
   shot N."
 - **`helpers/`** — generic plumbing: decoding raw h5/csv into calibrated
   `(time, voltage)` arrays (`loaders.py`), plotting (`plotting.py`).
-- **`shot_characterization/`** — Organization of shots
-- **`analysis/`** — analysis code here
+- **`shot_characterization/`** — the reusable pulse-finding/correction library
+  (`characterize`, `find_xray_shape`, `find_proton_onset`, `correct_pockels_signal`,
+  the PSTAR flux chain, `VERIFIED_CATEGORY`). Import from here; don't duplicate
+  this logic in a notebook. `shot_characterization/shot_review/` has the full
+  manual shot-by-shot review (every waveform, categorized by eye) that
+  `VERIFIED_CATEGORY` is built from.
+- **`analysis/`** — the notebooks that use the library above: x-ray/proton
+  onset, time-of-flight, energy spectrum, Pockels correction, proton flux.
 
 ## Getting the data
 
