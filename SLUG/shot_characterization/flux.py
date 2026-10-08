@@ -39,13 +39,19 @@ from .characterize import boxcar_smooth
 # stopping power is density-independent; diamond's actual density is
 # applied separately in charge_per_proton().
 PSTAR_ENERGY_MEV = np.array([
+    4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5,
     8.0, 8.5, 9.0, 9.5, 10.0, 12.5, 15.0, 17.5, 20.0,
     25.0, 27.5, 30.0, 35.0, 40.0,
 ])
-PSTAR_STOPPING_POWER = np.array([  # MeV cm^2/g
+PSTAR_STOPPING_POWER = np.array([  # MeV cm^2/g, total (electronic + nuclear)
+    83.30, 76.10, 70.14, 65.12, 60.84, 57.13, 53.88, 51.02,
     48.47, 46.20, 44.14, 42.27, 40.57, 33.91, 29.26, 25.83, 23.18,
     19.34, 17.91, 16.69, 14.74, 13.24,
 ])
+# Source: NIST PSTAR, "CARBON (amorphous, density 2.0 g/cm3)", total stopping
+# power. Rows from 8 MeV up were already here; 4-7.5 MeV added after shot 21's
+# energy axis was found to reach 5.8 MeV (stopping_power() clamps outside this
+# table, which understated it there and overstated the flux).
 
 RHO_DIAMOND = 3.51        # g/cm^3
 THICKNESS_CM = 30e-4      # 30 micron
